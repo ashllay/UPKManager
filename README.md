@@ -8,7 +8,8 @@ Extract and re-integrate Texture2D and other object types.
 Visual Studio 2015 .Net 4.6.1
 
 ### Download
-[UPK Manager v1.5.1](https://forums.stricq.com/resources/upk-manager.1/)
+Revert dds handling to version 1.3.2(no compression)
+[UPK Manager v1.5.1](http://www.mediafire.com/file/lgvs6tg3olgs7es/UpkManager_1.5.2_Mod.7z/file)
 
 ### Support
 [UPK Manager Forums](https://forums.stricq.com/)
