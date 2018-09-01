@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="UpkManager.Wpf.Views.MainMenuView" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mvvm="http://schemas.stricq.com/mvvmcommon/"
+             mvvm:ViewModelLocator.ComposedViewModel="MainMenuViewModel"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="24">
+
+  <Menu Height="24" Padding="3,3,0,0" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" BorderBrush="{StaticResource StatusBarBorderColor}" Background="{StaticResource MenuGradient}">
+
+    <MenuItem Header="_File" Foreground="White">
+      <MenuItem Header="_Reload Game Files" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=ReloadFiles}" />
+
+      <Separator />
+
+      <MenuItem Header="_Export Selected Files" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=ExportFiles}" />
+      <MenuItem Header="Save Object _As..."     Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=SaveObjectAs}" />
+
+      <Separator />
+
+      <MenuItem Header="E_xit" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=Exit}" />
+    </MenuItem>
+
+    <MenuItem Header="_Edit" Foreground="White">
+      <MenuItem Header="Select _All Files"   Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=SelectAllFiles}" />
+      <MenuItem Header="_Deselect All Files" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=DeselectAllFiles}" />
+    </MenuItem>
+
+    <MenuItem Header="_Rebuild" Foreground="White">
+      <MenuItem Header="Re_build Selected Exports" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=RebuildExported}" />
+
+      <Separator />
+
+      <MenuItem Header="_Delete Selected Exports" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=DeleteExported}" />
+    </MenuItem>
+
+    <MenuItem Header="_Settings" Foreground="White">
+      <MenuItem Header="_Offline Mode" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsOfflineMode}" />
+
+      <Separator />
+
+      <MenuItem Header="_Debug" Foreground="{StaticResource BackgroundColor}">
+        <MenuItem Header="Skip _Properties"            Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsSkipProperties}" />
+        <MenuItem Header="Skip _Object Parsing"        Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsSkipParsing}" />
+        <MenuItem Header="View Export Table _Raw Data" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsViewRawData}" />
+
+        <Separator />
+
+        <MenuItem Header="_Scan UPK Files" Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=ScanUpkFiles}" />
+      </MenuItem>
+
+      <MenuItem Header="He_x View" Foreground="{StaticResource BackgroundColor}">
+        <MenuItem Header="_View Whole Object" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsHexViewObject}" />
+
+        <Separator />
+
+        <MenuItem Header="_Export as Text..." Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=ExportHexView}" />
+      </MenuItem>
+
+      <Separator />
+
+      <MenuItem Header="_Texture Quality" Foreground="{StaticResource BackgroundColor}">
+        <MenuItem Header="_DDS Format" Foreground="{StaticResource BackgroundColor}" Visibility="Collapsed">
+          <MenuItem Header="Default"      Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsDdsDefault}" />
+          <MenuItem Header="DDS _1"       Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsDdsFormat1}" />
+          <MenuItem Header="DDS _5"       Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsDdsFormat5}" />
+          <MenuItem Header="Uncompressed" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsDdsUncompressed}" />
+        </MenuItem>
+
+        <MenuItem Header="_Compressor Type" Foreground="{StaticResource BackgroundColor}">
+          <MenuItem Header="_Range Fit (Fast/LQ)"         Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsCompressorRangeFit}" />
+          <MenuItem Header="_Cluster Fit (Slow/HQ)"       Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsCompressorClusterFit}" />
+          <MenuItem Header="_Iterative Fit (Slowest/HQ)"  Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsCompressorIterativeFit}" />
+        </MenuItem>
+
+        <MenuItem Header="_Error Metric">
+          <MenuItem Header="_Uniform"    Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsErrorMetricUniform}" />
+          <MenuItem Header="_Perceptual" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsErrorMetricPerceptual}" />
+        </MenuItem>
+
+        <MenuItem Header="_Weight Color by Alpha" Foreground="{StaticResource BackgroundColor}" IsCheckable="True" IsChecked="{Binding Path=IsWeightColorByAlpha}" IsEnabled="{Binding Path=IsWeightingEnabled}" />
+      </MenuItem>
+
+      <Separator />
+
+      <MenuItem Header="S_ettings..." Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=Settings}" />
+    </MenuItem>
+
+    <MenuItem Header="_Help" Foreground="White">
+      <MenuItem Header="_About..." Foreground="{StaticResource BackgroundColor}" Command="{Binding Path=About}" />
+    </MenuItem>
+
+  </Menu>
+
+</UserControl>
